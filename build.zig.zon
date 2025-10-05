@@ -5,8 +5,8 @@
     .minimum_zig_version = "0.14.1",
     .dependencies = .{
         .vita = .{
-            .url = "git+https://github.com/vita-zig/vita.git#a3a34d14d790ea191c607325869cfb5b69bc9cc3",
-            .hash = "vita-0.0.0-hOCrsW4iDABaS51R2NHzgYtQB9cg3LAdz9oTWf400xFG",
+            .url = "git+https://github.com/vita-zig/vita.git#4333ea5bda401a5e08089e6b28694620be18f16d",
+            .hash = "vita-0.0.0-hOCrsW4iDABjdX_ZX7uZ5KxFkUoyxVt7Biuhdy9JAGFM",
         },
     },
     .paths = .{
