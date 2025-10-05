@@ -36,6 +36,7 @@ pub fn build(b: *std.Build) !void {
     exe_mod.addLibraryPath(b.path("vitasdk/arm-vita-eabi/lib"));
     exe_mod.addObjectFile(b.path("vitasdk/arm-vita-eabi/lib/crt0.o"));
     exe_mod.addObjectFile(b.path("vitasdk/lib/gcc/arm-vita-eabi/10.3.0/crti.o"));
+    exe_mod.addObjectFile(b.path("vitasdk/lib/gcc/arm-vita-eabi/10.3.0/crtn.o"));
     // exe_mod.addObjectFile(b.path("vitasdk/arm-vita-eabi/lib/libg.a"));
     exe_mod.addObjectFile(b.path("vitasdk/arm-vita-eabi/lib/libc.a"));
     exe_mod.addObjectFile(b.path("vitasdk/arm-vita-eabi/lib/libm.a"));
@@ -78,10 +79,11 @@ pub fn build(b: *std.Build) !void {
     // exe.addObject(SceLibKernel);
     b.installArtifact(exe);
     exe_mod.strip = false;
-    exe_mod.single_threaded = true;
+    // exe_mod.single_threaded = true;
+    // exe.link_emit_relocs = false;
     // exe.pie = true;
     exe.image_base = 0x80000000;
-    exe_mod.code_model = .default;
+    // exe_mod.code_model = .small;
 
     const libc_step = Vita.GenerateLibcFile.create(b, "vita_libc");
     libc_step.setInclueDir(b.path("vitasdk/arm-vita-eabi/includez/"));
@@ -92,7 +94,7 @@ pub fn build(b: *std.Build) !void {
 
     // exe.link_function_sections = true;
     exe_mod.link_libc = true;
-    // exe.setLinkerScript(b.path("vita.ld"));
+    exe.setLinkerScript(b.path("vita.ld"));
     exe.link_emit_relocs = false;
     // exe.verbose_link = true;
 

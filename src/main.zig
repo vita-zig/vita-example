@@ -35,7 +35,7 @@ pub export fn main() c_int {
     return 0;
 }
 
-// export fn _start() callconv(.naked) void {
+// export fn fix_init() linksection(".init") callconv(.naked) void {
 //     asm volatile (
 //         \\.thumb
 //         \\pop     {r3, r4, r5, r6, r7}
@@ -45,7 +45,7 @@ pub export fn main() c_int {
 //     );
 // }
 // comptime {
-//     std.mem.doNotOptimizeAway(WAAAAT);
+//     std.mem.doNotOptimizeAway(fix_init);
 // }
 
 pub const std_options: std.Options = .{
