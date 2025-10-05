@@ -1,0 +1,17 @@
+.{
+    .name = .vita_example,
+    .version = "0.0.0",
+    .fingerprint = 0x50075f4806560241,
+    .minimum_zig_version = "0.14.1",
+    .dependencies = .{
+        .vita = .{
+            .url = "git+https://github.com/vita-zig/vita.git#a3a34d14d790ea191c607325869cfb5b69bc9cc3",
+            .hash = "vita-0.0.0-hOCrsW4iDABaS51R2NHzgYtQB9cg3LAdz9oTWf400xFG",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
